@@ -1,0 +1,10 @@
+{
+  "name": "oat-notebook-journal",
+  "version": "1.0.0",
+  "description": "Notebook-style journal with a passphrase-only login and a JSON-backed API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}
