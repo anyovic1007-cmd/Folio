@@ -867,10 +867,6 @@
       </div>
       <button class="login-btn" onclick="enterJournal()">Open My Journal</button>
     </div>
-
-    <p class="login-footer" style="margin-top:1.2rem;">
-      No account? <a onclick="enterJournal()">Begin writing →</a>
-    </p>
   </div>
 </div>
 
@@ -1000,21 +996,57 @@ let activeEntryId = null;
 let editingId = null;
 let avatarOpen = false;
 let activeNotebookId = null;
-const API_BASE = 'http://localhost:3000';
+
+// --- API CONFIG ---
+// Automatically uses deployed backend in production, localhost in dev
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_BASE = IS_LOCAL ? 'http://localhost:3000' : 'https://folio-nbzs.onrender.com';
+console.log('[Folio] API_BASE:', API_BASE);
+
 let apiPassphrase = sessionStorage.getItem('passphrase') || '';
 
 // Auth
 async function enterJournal() {
   const pass = (document.getElementById('pass-field').value || '').trim();
   const errorEl = document.getElementById('login-error');
-  errorEl.textContent = 'Incorrect passphrase. Try again.';
-  if (pass !== 'Ozemoya') {
+  const btn = document.querySelector('.login-btn');
+
+  if (!pass) {
+    errorEl.textContent = 'Please enter your passphrase.';
     errorEl.style.display = 'block';
-    document.getElementById('pass-field').focus();
     return;
   }
+
   errorEl.style.display = 'none';
+  btn.textContent = 'Opening…';
+  btn.disabled = true;
+
+  // Set passphrase and verify against the actual backend
   apiPassphrase = pass;
+
+  try {
+    // Real auth check: hit a protected route — server will 401 if passphrase is wrong
+    await apiFetch('/notebooks');
+  } catch (err) {
+    console.error('[Folio] Login check failed:', err);
+    btn.textContent = 'Open My Journal';
+    btn.disabled = false;
+
+    if (err.message && (err.message.includes('401') || err.message.includes('403'))) {
+      errorEl.textContent = 'Incorrect passphrase. Try again.';
+    } else if (err.name === 'AbortError') {
+      errorEl.textContent = 'Server is waking up (cold start). Please wait 30s and try again.';
+    } else if (err.message && err.message.includes('Failed to fetch')) {
+      errorEl.textContent = 'Cannot reach the server. Check your connection or try again shortly.';
+    } else {
+      errorEl.textContent = `Connection error: ${err.message}`;
+    }
+    errorEl.style.display = 'block';
+    apiPassphrase = '';
+    return;
+  }
+
+  // Passphrase accepted — proceed
   sessionStorage.setItem('passphrase', pass);
 
   try {
@@ -1026,8 +1058,12 @@ async function enterJournal() {
     renderNotebookGrid(entries);
     showNotebook();
   } catch (err) {
-    errorEl.textContent = 'Unable to connect to the server.';
+    console.error('[Folio] Post-login setup failed:', err);
+    errorEl.textContent = 'Logged in but failed to load your journal. Please refresh.';
     errorEl.style.display = 'block';
+  } finally {
+    btn.textContent = 'Open My Journal';
+    btn.disabled = false;
   }
 }
 
@@ -1112,15 +1148,35 @@ async function apiFetch(path, options = {}) {
     opts.body = JSON.stringify(opts.body);
   }
 
-  const res = await fetch(`${API_BASE}${path}`, opts);
+  // 45s timeout — Render free tier can cold-start slowly
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 45000);
+  opts.signal = controller.signal;
+
+  const url = `${API_BASE}${path}`;
+  console.log(`[Folio] ${opts.method} ${url}`);
+
+  let res;
+  try {
+    res = await fetch(url, opts);
+  } catch (err) {
+    clearTimeout(timeoutId);
+    console.error(`[Folio] Network error on ${opts.method} ${url}:`, err);
+    throw err;
+  }
+  clearTimeout(timeoutId);
+
   if (!res.ok) {
     let message = `Request failed (${res.status})`;
     try {
       const err = await res.json();
       if (err && err.error) message = err.error;
     } catch {}
+    console.error(`[Folio] API error ${res.status} on ${opts.method} ${url}: ${message}`);
     throw new Error(message);
   }
+
+  console.log(`[Folio] ${res.status} OK — ${opts.method} ${url}`);
   return res.json();
 }
 
