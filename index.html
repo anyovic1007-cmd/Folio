@@ -91,10 +91,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .brand-icon {
-    width: 38px;
-    height: 38px;
-  }
+  .brand-icon { width: 38px; height: 38px; }
 
   .brand-name {
     font-family: var(--login-serif);
@@ -137,27 +134,19 @@
     background: var(--cream-border);
   }
   .divider-gem {
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     background: var(--gold);
     transform: rotate(45deg);
     flex-shrink: 0;
   }
 
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+  .login-form { display: flex; flex-direction: column; gap: 1rem; }
 
-  .field-group {
-    position: relative;
-  }
+  .field-group { position: relative; }
 
   .field-group label {
     position: absolute;
-    top: 50%;
-    left: 14px;
+    top: 50%; left: 14px;
     transform: translateY(-50%);
     font-size: 0.8rem;
     color: var(--ink-muted);
@@ -179,16 +168,9 @@
     outline: none;
     transition: border-color 0.2s;
   }
-
-  .field-group input:focus {
-    border-color: var(--royal-mid);
-  }
-
+  .field-group input:focus { border-color: var(--royal-mid); }
   .field-group input:focus + label,
-  .field-group input:not(:placeholder-shown) + label {
-    top: 9px;
-    font-size: 0.65rem;
-  }
+  .field-group input:not(:placeholder-shown) + label { top: 9px; font-size: 0.65rem; }
 
   .login-btn {
     margin-top: 0.5rem;
@@ -205,119 +187,71 @@
     cursor: pointer;
     transition: background 0.25s, transform 0.15s;
   }
-
   .login-btn:hover { background: var(--royal-dark); transform: translateY(-1px); }
 
-  .login-footer {
-    margin-top: 1.5rem;
-    font-size: 0.75rem;
-    color: var(--ink-muted);
-  }
-
-  .login-footer a {
-    color: var(--royal-mid);
-    text-decoration: none;
-    cursor: pointer;
-  }
+  .login-footer { margin-top: 1.5rem; font-size: 0.75rem; color: var(--ink-muted); }
+  .login-footer a { color: var(--royal-mid); text-decoration: none; cursor: pointer; }
 
   /* JOURNAL APP */
-  #app-page {
-    display: none;
-    min-height: 100vh;
-    background: var(--cream);
-  }
+  #app-page { display: none; min-height: 100vh; background: var(--cream); }
 
   .top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: sticky; top: 0; z-index: 100;
     background: rgba(250,246,240,0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--cream-border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    height: 58px;
-    gap: 1rem;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 58px; gap: 1rem;
   }
 
   .nav-brand {
     font-family: var(--serif);
-    font-size: 1.35rem;
-    font-weight: 600;
+    font-size: 1.35rem; font-weight: 600;
     color: var(--royal-dark);
-    letter-spacing: 0.06em;
-    text-transform: lowercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    letter-spacing: 0.06em; text-transform: lowercase;
+    display: flex; align-items: center; gap: 8px;
   }
 
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
+  .nav-right { display: flex; align-items: center; gap: 1rem; }
 
   .new-entry-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: flex; align-items: center; gap: 6px;
     padding: 0.45rem 1rem;
-    background: var(--royal);
-    color: var(--cream);
-    border: none;
-    border-radius: 4px;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
+    background: var(--royal); color: var(--cream);
+    border: none; border-radius: 4px;
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
   }
   .new-entry-btn:hover { background: var(--royal-dark); }
 
   .avatar-btn {
-    width: 34px;
-    height: 34px;
+    width: 34px; height: 34px;
     border-radius: 50%;
     background: var(--royal-light);
     border: 1.5px solid var(--royal-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--serif);
-    font-size: 1rem;
-    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 1rem; font-weight: 600;
     color: var(--royal-dark);
-    cursor: pointer;
-    position: relative;
+    cursor: pointer; position: relative;
   }
 
   .avatar-dropdown {
     position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
+    top: calc(100% + 8px); right: 0;
     background: #fff;
     border: 1px solid var(--cream-border);
     border-radius: 6px;
     padding: 0.5rem 0;
-    min-width: 140px;
+    min-width: 160px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     display: none;
   }
-
   .avatar-btn.open .avatar-dropdown { display: block; }
-
   .avatar-dropdown a {
-    display: block;
-    padding: 0.5rem 1rem;
-    font-size: 0.82rem;
-    color: var(--ink-soft);
-    text-decoration: none;
-    cursor: pointer;
+    display: block; padding: 0.6rem 1rem;
+    font-size: 0.82rem; color: var(--ink-soft);
+    text-decoration: none; cursor: pointer;
     transition: background 0.15s;
   }
   .avatar-dropdown a:hover { background: var(--cream); }
@@ -334,114 +268,53 @@
     padding: 1.5rem 0;
     background: rgba(255,255,255,0.5);
     overflow-y: auto;
-    position: sticky;
-    top: 58px;
+    position: sticky; top: 58px;
     height: calc(100vh - 58px);
   }
 
-  .sidebar-section {
-    padding: 0 1.2rem;
-    margin-bottom: 1.5rem;
-  }
+  .sidebar-section { padding: 0 1.2rem; margin-bottom: 1.5rem; }
 
   .sidebar-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 0.6rem;
-    padding-left: 4px;
+    font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 0.6rem; padding-left: 4px;
   }
 
-  .entry-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
+  .entry-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
 
   .entry-item {
-    padding: 0.55rem 0.75rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.15s;
+    padding: 0.55rem 0.75rem; border-radius: 6px;
+    cursor: pointer; transition: background 0.15s;
     border-left: 2px solid transparent;
   }
-
   .entry-item:hover { background: var(--cream-dark); }
+  .entry-item.active { background: var(--royal-light); border-left-color: var(--royal); }
 
-  .entry-item.active {
-    background: var(--royal-light);
-    border-left-color: var(--royal);
-  }
-
-  .entry-item-date {
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
+  .entry-item-date { font-size: 0.7rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; }
   .entry-item-title {
-    font-family: var(--serif);
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-top: 2px;
+    font-family: var(--serif); font-size: 0.95rem; color: var(--ink-soft);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px;
   }
 
   .editor-area {
-    display: flex;
-    flex-direction: column;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 2.5rem 2rem 4rem;
-    width: 100%;
+    display: flex; flex-direction: column;
+    max-width: 720px; margin: 0 auto;
+    padding: 2.5rem 2rem 4rem; width: 100%;
   }
 
   .welcome-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-    text-align: center;
-  }
-
-  .welcome-quote {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    font-style: italic;
-    font-weight: 300;
-    color: var(--royal-dark);
-    line-height: 1.4;
-    max-width: 480px;
-    margin-bottom: 1rem;
-  }
-
-  .welcome-attr {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 60vh; text-align: center;
   }
 
   .welcome-cta {
     padding: 0.7rem 2rem;
-    background: transparent;
-    border: 1px solid var(--royal);
-    color: var(--royal);
-    border-radius: 4px;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
+    background: transparent; border: 1px solid var(--royal); color: var(--royal);
+    border-radius: 4px; font-family: var(--sans);
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s;
   }
   .welcome-cta:hover { background: var(--royal); color: var(--cream); }
 
@@ -449,109 +322,58 @@
   .notebook-view { display: none; }
 
   .editor-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;
   }
 
   .back-btn {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--cream-border);
-    background: #fff;
-    color: var(--ink-soft);
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--sans);
-    font-size: 1rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: all 0.2s;
+    width: 32px; height: 32px;
+    border: 1px solid var(--cream-border); background: #fff; color: var(--ink-soft);
+    border-radius: 999px; display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-size: 1rem; line-height: 1; cursor: pointer; transition: all 0.2s;
   }
-
-  .back-btn:hover {
-    border-color: var(--royal-mid);
-    color: var(--royal);
-  }
+  .back-btn:hover { border-color: var(--royal-mid); color: var(--royal); }
 
   .editor-date-display {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
+    font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-muted);
   }
 
   .tag-input-wrapper {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4px;
-    background: #fff;
-    border: 1px solid var(--cream-border);
-    border-radius: 4px;
-    padding: 0.4rem 0.75rem;
-    margin-bottom: 0.75rem;
-    min-height: 38px;
-    cursor: text;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
+    background: #fff; border: 1px solid var(--cream-border); border-radius: 4px;
+    padding: 0.4rem 0.75rem; margin-bottom: 0.75rem; min-height: 38px; cursor: text;
   }
 
   .tag-pill {
-    background: var(--royal-light);
-    color: var(--royal-dark);
-    font-size: 0.72rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    letter-spacing: 0.03em;
+    background: var(--royal-light); color: var(--royal-dark);
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 20px;
+    display: flex; align-items: center; gap: 4px; letter-spacing: 0.03em;
   }
 
   .tag-remove {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--royal-mid);
-    font-size: 0.9rem;
-    line-height: 1;
-    padding: 0;
+    background: none; border: none; cursor: pointer;
+    color: var(--royal-mid); font-size: 0.9rem; line-height: 1; padding: 0;
   }
 
   .tag-field {
-    border: none;
-    outline: none;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--ink-muted);
-    background: transparent;
-    flex: 1;
-    min-width: 80px;
+    border: none; outline: none; font-family: var(--sans);
+    font-size: 0.8rem; color: var(--ink-muted); background: transparent;
+    flex: 1; min-width: 80px;
   }
 
   .title-field {
-    width: 100%;
-    border: none;
-    background: transparent;
-    font-family: var(--serif);
-    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
-    font-weight: 300;
-    color: var(--royal-dark);
-    line-height: 1.2;
-    padding: 0;
-    outline: none;
-    margin-bottom: 1.2rem;
-    resize: none;
+    width: 100%; border: none; background: transparent;
+    font-family: var(--serif); font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-weight: 300; color: var(--royal-dark);
+    line-height: 1.2; padding: 0; outline: none;
+    margin-bottom: 1.2rem; resize: none;
   }
 
+  /* TOOLBAR */
   .toolbar {
-    display: flex;
-    gap: 2px;
-    padding: 0.4rem 0.5rem;
+    display: flex; flex-wrap: wrap; gap: 3px;
+    padding: 0.45rem 0.5rem;
     background: #fff;
     border: 1px solid var(--cream-border);
     border-bottom: none;
@@ -559,49 +381,35 @@
   }
 
   .tool-btn {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: transparent;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
+    height: 30px; min-width: 30px;
+    display: flex; align-items: center; justify-content: center;
+    border: none; background: transparent; border-radius: 3px;
+    cursor: pointer; font-size: 0.8rem; font-weight: 600;
     color: var(--ink-muted);
     transition: background 0.15s, color 0.15s;
+    padding: 0 6px;
+  }
+  .tool-btn:hover { background: var(--cream-dark); color: var(--royal); }
+  .tool-btn.active {
+    background: var(--royal); color: #fff;
+    box-shadow: 0 0 0 2px rgba(26,58,107,0.2);
   }
 
-  .tool-btn:hover { background: var(--cream-dark); color: var(--royal); }
-  .tool-btn.active { background: var(--royal); color: #fff; box-shadow: 0 0 0 2px rgba(26,58,107,0.25); }
-
   .tool-sep {
-    width: 1px;
-    background: var(--cream-border);
-    margin: 4px 2px;
-    align-self: stretch;
+    width: 1px; background: var(--cream-border);
+    margin: 4px 2px; align-self: stretch;
   }
 
   .body-field {
-    width: 100%;
-    min-height: 380px;
+    width: 100%; min-height: 380px;
     border: 1px solid var(--cream-border);
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    background: #fff;
-    padding: 1.35rem 1.4rem;
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--ink-soft);
-    resize: vertical;
-    outline: none;
-    white-space: pre-wrap;
+    border-top: none; border-radius: 0 0 4px 4px;
+    background: #fff; padding: 1.35rem 1.4rem;
+    font-family: var(--serif); font-size: 1.05rem;
+    line-height: 1.85; color: var(--ink-soft);
+    resize: vertical; outline: none; white-space: pre-wrap;
     background-image: repeating-linear-gradient(
-      to bottom,
-      transparent 0,
+      to bottom, transparent 0,
       transparent calc(1.85em - 1px),
       rgba(26,58,107,0.12) calc(1.85em - 1px),
       rgba(26,58,107,0.12) 1.85em
@@ -610,52 +418,33 @@
     background-position-y: 1.35rem;
     background-attachment: local;
   }
-
   .body-field:focus { border-color: var(--royal-mid); }
-
-  .body-field:empty:before {
-    content: attr(data-placeholder);
-    color: var(--ink-muted);
-    opacity: 0.7;
-  }
+  .body-field:empty:before { content: attr(data-placeholder); color: var(--ink-muted); opacity: 0.7; }
 
   .save-btn {
-    margin-top: 1.2rem;
-    padding: 0.75rem 2.5rem;
-    background: var(--royal);
-    color: var(--cream);
-    border: none;
-    border-radius: 4px;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    align-self: flex-start;
+    margin-top: 1.2rem; padding: 0.75rem 2.5rem;
+    background: var(--royal); color: var(--cream);
+    border: none; border-radius: 4px;
+    font-family: var(--sans); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s; align-self: flex-start;
   }
-
   .save-btn:hover { background: var(--royal-dark); }
 
   .entry-view { display: none; }
+
   .notebook-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: 1rem; margin-top: 1.5rem;
   }
 
   .notebook-card {
-    background: #fff;
-    border: 1px solid var(--cream-border);
-    border-radius: 8px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+    background: #fff; border: 1px solid var(--cream-border);
+    border-radius: 8px; padding: 1rem;
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
     position: relative;
   }
-
   .notebook-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.08);
@@ -663,197 +452,98 @@
   }
 
   .notebook-spine {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 6px;
+    position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
     background: linear-gradient(180deg, var(--royal), var(--gold));
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px; border-bottom-left-radius: 8px;
   }
 
-  .notebook-title {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    color: var(--royal-dark);
-    margin-bottom: 0.4rem;
-    padding-left: 0.5rem;
-  }
+  .notebook-title { font-family: var(--serif); font-size: 1.05rem; color: var(--royal-dark); margin-bottom: 0.4rem; padding-left: 0.5rem; }
+  .notebook-meta { font-size: 0.72rem; color: var(--ink-muted); letter-spacing: 0.05em; text-transform: uppercase; padding-left: 0.5rem; }
+  .notebook-excerpt { margin-top: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; padding-left: 0.5rem; }
 
-  .notebook-meta {
-    font-size: 0.72rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    padding-left: 0.5rem;
-  }
+  .entry-view-header { margin-bottom: 2rem; border-bottom: 1px solid var(--cream-border); padding-bottom: 1.5rem; }
+  .entry-view-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+  .entry-view-date { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+  .entry-view-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.5vw, 2.3rem); font-weight: 300; color: var(--royal-dark); line-height: 1.2; margin-bottom: 0.75rem; }
+  .entry-view-body { font-family: var(--serif); font-size: 1.05rem; line-height: 1.85; color: var(--ink-soft); white-space: pre-wrap; }
+  .entry-view-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 1.5rem; }
 
-  .notebook-excerpt {
-    margin-top: 0.6rem;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    padding-left: 0.5rem;
-  }
-
-  .entry-view-header {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--cream-border);
-    padding-bottom: 1.5rem;
-  }
-
-  .entry-view-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-    flex-wrap: wrap;
-  }
-
-  .entry-view-date {
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-
-  .entry-view-title {
-    font-family: var(--serif);
-    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
-    font-weight: 300;
-    color: var(--royal-dark);
-    line-height: 1.2;
-    margin-bottom: 0.75rem;
-  }
-
-  .entry-view-body {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--ink-soft);
-    white-space: pre-wrap;
-  }
-
-  .entry-view-tags {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-  }
-
-  .search-bar {
-    position: relative;
-    padding: 0 1.2rem;
-    margin-bottom: 1rem;
-  }
-
+  .search-bar { position: relative; padding: 0 1.2rem; margin-bottom: 1rem; }
   .search-bar input {
-    width: 100%;
-    background: #fff;
-    border: 1px solid var(--cream-border);
-    border-radius: 4px;
-    padding: 0.5rem 0.75rem 0.5rem 2rem;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--ink);
-    outline: none;
+    width: 100%; background: #fff; border: 1px solid var(--cream-border);
+    border-radius: 4px; padding: 0.5rem 0.75rem 0.5rem 2rem;
+    font-family: var(--sans); font-size: 0.8rem; color: var(--ink); outline: none;
   }
-
   .search-bar input:focus { border-color: var(--royal-mid); }
-
-  .search-icon {
-    position: absolute;
-    left: 1.9rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--ink-muted);
-    font-size: 0.9rem;
-  }
+  .search-icon { position: absolute; left: 1.9rem; top: 50%; transform: translateY(-50%); color: var(--ink-muted); font-size: 0.9rem; }
 
   .toast {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--royal-dark);
-    color: var(--cream);
-    padding: 0.7rem 1.4rem;
-    border-radius: 4px;
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-    z-index: 999;
-    opacity: 0;
-    transform: translateY(8px);
-    transition: all 0.3s;
-    pointer-events: none;
+    position: fixed; bottom: 2rem; right: 2rem;
+    background: var(--royal-dark); color: var(--cream);
+    padding: 0.7rem 1.4rem; border-radius: 4px;
+    font-size: 0.82rem; letter-spacing: 0.04em;
+    z-index: 999; opacity: 0; transform: translateY(8px);
+    transition: all 0.3s; pointer-events: none;
   }
   .toast.show { opacity: 1; transform: translateY(0); }
 
-  .gold-line {
-    width: 32px;
-    height: 2px;
-    background: var(--gold);
-    margin: 1.2rem auto;
-  }
+  .gold-line { width: 32px; height: 2px; background: var(--gold); margin: 1.2rem auto; }
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--cream-border); border-radius: 2px; }
 
-  .mobile-search {
-    display: none;
-    margin-bottom: 1.25rem;
-  }
-
+  .mobile-search { display: none; margin-bottom: 1.25rem; }
   .mobile-search input {
-    width: 100%;
-    background: #fff;
-    border: 1px solid var(--cream-border);
-    border-radius: 6px;
-    padding: 0.65rem 0.85rem;
-    font-family: var(--sans);
-    font-size: 1rem;
-    color: var(--ink);
-    outline: none;
-    min-height: 44px;
+    width: 100%; background: #fff; border: 1px solid var(--cream-border);
+    border-radius: 6px; padding: 0.65rem 0.85rem;
+    font-family: var(--sans); font-size: 1rem; color: var(--ink); outline: none; min-height: 44px;
   }
-
   .mobile-search input:focus { border-color: var(--royal-mid); }
 
-@media (max-width: 900px) {
-  .app-layout { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
-  .editor-area { max-width: none; padding: 1.5rem 1.1rem 5rem; }
-  .top-nav { height: 64px; padding: 0 1.1rem; }
-  .new-entry-btn { min-height: 44px; padding: 0 1.1rem; font-size: 0.85rem; border-radius: 6px; }
-  .avatar-btn { width: 44px; height: 44px; font-size: 1.1rem; }
-  .avatar-dropdown { min-width: 180px; }
-  .avatar-dropdown a { padding: 0.75rem 1.1rem; font-size: 0.9rem; }
-  .mobile-search { display: block; }
-  .title-field { font-size: clamp(1.9rem, 6.5vw, 2.5rem); margin-bottom: 1.2rem; }
-  .toolbar { flex-wrap: wrap; gap: 5px; padding: 0.65rem 0.6rem; border-radius: 8px 8px 0 0; }
-  .tool-btn { min-width: 44px; width: 44px; height: 44px; border-radius: 7px; font-size: 0.95rem; background: var(--cream); border: 1px solid var(--cream-border); }
-  .tool-btn.wide { min-width: 58px; padding: 0 10px; font-size: 0.8rem; height: 44px; }
-  .tool-sep { display: none; }
-  .body-field { min-height: 52vh; padding: 1.3rem 1.1rem; font-size: 1.12rem; line-height: 1.85; border-radius: 0 0 8px 8px; }
-  .tag-input-wrapper { min-height: 48px; padding: 0.6rem 0.85rem; border-radius: 8px; }
-  .tag-field { font-size: 1rem; }
-  .save-btn { width: 100%; min-height: 52px; font-size: 0.9rem; border-radius: 8px; margin-top: 1.4rem; }
-  .notebook-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .notebook-card { padding: 1.1rem 1rem 1.1rem 1.3rem; min-height: 120px; }
-  .notebook-title { font-size: 1.15rem; }
-  .notebook-excerpt, .entry-view-body { font-size: 1.05rem; line-height: 1.8; }
-  .entry-view-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
-  .back-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-  .welcome-cta { padding: 0.85rem 2.5rem; font-size: 0.9rem; min-height: 48px; }
-}
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .app-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .mobile-search { display: block; }
 
-@media (max-width: 640px) {
-  .editor-area { padding: 1.2rem 0.9rem 4.5rem; }
-  .top-nav { padding: 0 0.9rem; height: 60px; }
-  .new-entry-btn { min-height: 42px; padding: 0 0.85rem; font-size: 0.8rem; }
-  .nav-brand { font-size: 1.3rem; }
-}
+    .top-nav { height: 64px; padding: 0 1.1rem; }
+    .nav-brand { font-size: 1.3rem; }
+    .new-entry-btn { min-height: 44px; padding: 0 1.1rem; font-size: 0.85rem; border-radius: 6px; }
+    .avatar-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+    .avatar-dropdown { min-width: 180px; }
+    .avatar-dropdown a { padding: 0.8rem 1.1rem; font-size: 0.9rem; }
+
+    .editor-area { max-width: none; padding: 1.5rem 1.1rem 5rem; }
+
+    .title-field { font-size: clamp(1.9rem, 6.5vw, 2.6rem); margin-bottom: 1.2rem; }
+
+    .toolbar { gap: 5px; padding: 0.65rem 0.6rem; border-radius: 8px 8px 0 0; }
+    .tool-btn { height: 44px; min-width: 44px; border-radius: 7px; font-size: 0.95rem; background: var(--cream); border: 1px solid var(--cream-border); }
+    .tool-sep { display: none; }
+
+    .body-field { min-height: 52vh; padding: 1.3rem 1.1rem; font-size: 1.12rem; line-height: 1.85; border-radius: 0 0 8px 8px; }
+
+    .tag-input-wrapper { min-height: 48px; padding: 0.6rem 0.85rem; border-radius: 8px; }
+    .tag-field { font-size: 1rem; }
+
+    .save-btn { width: 100%; min-height: 52px; font-size: 0.9rem; border-radius: 8px; margin-top: 1.4rem; align-self: auto; }
+
+    .notebook-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .notebook-card { padding: 1.1rem 1rem 1.1rem 1.3rem; min-height: 120px; }
+    .notebook-title { font-size: 1.15rem; }
+    .notebook-excerpt, .entry-view-body { font-size: 1.05rem; line-height: 1.8; }
+    .entry-view-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+
+    .back-btn { width: 42px; height: 42px; font-size: 1.1rem; }
+    .welcome-cta { padding: 0.9rem 2.5rem; font-size: 0.9rem; min-height: 50px; }
+  }
+
+  @media (max-width: 640px) {
+    .top-nav { padding: 0 0.9rem; height: 60px; }
+    .new-entry-btn { min-height: 42px; padding: 0 0.85rem; font-size: 0.8rem; }
+    .editor-area { padding: 1.2rem 0.9rem 4.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -880,7 +570,6 @@
     <h1 class="login-headline">What's on your mind today, Treasure?</h1>
     <div class="gold-line"></div>
     <p class="login-sub">Your Forever Journal</p>
-
     <div class="divider"><div class="divider-gem"></div></div>
 
     <div class="login-form">
@@ -893,10 +582,6 @@
       </div>
       <button class="login-btn" onclick="enterJournal()">Open My Journal</button>
     </div>
-
-    <p class="login-footer" style="margin-top:1.2rem;">
-      No account? <a onclick="enterJournal()">Begin writing →</a>
-    </p>
   </div>
 </div>
 
@@ -917,7 +602,7 @@
       <div class="avatar-btn" id="avatar" onclick="toggleAvatarMenu()">
         T
         <div class="avatar-dropdown">
-          <a onclick="showNotebook(); closeAvatarMenu();">Saved Writeups</a>
+          <a onclick="showNotebook(); closeAvatarMenu();">📓 Saved Writeups</a>
           <a class="sign-out" onclick="signOut()">Sign out</a>
         </div>
       </div>
@@ -925,20 +610,17 @@
   </nav>
 
   <div class="app-layout">
-    <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="search-bar">
         <span class="search-icon">⌕</span>
         <input type="text" placeholder="Search entries..." id="search-input" oninput="filterEntries(this.value)">
       </div>
-
       <div class="sidebar-section">
         <div class="sidebar-label">All Entries</div>
         <ul class="entry-list" id="entry-list"></ul>
       </div>
     </aside>
 
-    <!-- EDITOR AREA -->
     <main class="editor-area">
       <div class="mobile-search">
         <input type="text" placeholder="Search entries..." oninput="filterEntries(this.value)">
@@ -946,7 +628,7 @@
 
       <!-- WELCOME -->
       <div class="welcome-state" id="welcome-state">
-                <button class="welcome-cta" onclick="openNewEntry()">Begin Today's Entry</button>
+        <button class="welcome-cta" onclick="openNewEntry()">Begin Today's Entry</button>
       </div>
 
       <!-- NOTEBOOK VIEW -->
@@ -962,43 +644,40 @@
 
       <!-- EDITOR FORM -->
       <div class="editor-form" id="editor-form">
-      <div class="editor-meta">
+        <div class="editor-meta">
           <button class="back-btn" onclick="showNotebook()" aria-label="Back">←</button>
           <span class="editor-date-display" id="editor-date"></span>
-      </div>
+        </div>
 
-        <!-- Tags -->
         <div class="tag-input-wrapper" id="tag-wrapper" onclick="document.getElementById('tag-field').focus()">
           <span style="font-size:0.72rem;color:var(--ink-muted);letter-spacing:.05em;text-transform:uppercase;margin-right:4px;">Tags:</span>
           <div id="tags-container"></div>
           <input class="tag-field" id="tag-field" placeholder="Add tag + Enter" onkeydown="handleTag(event)">
         </div>
 
-        <!-- Title -->
         <textarea class="title-field" id="entry-title" placeholder="What's the Title...?" rows="1" oninput="autoResize(this)"></textarea>
 
-        <!-- Toolbar -->
+        <!-- TOOLBAR -->
         <div class="toolbar" id="toolbar">
-          <button class="tool-btn" id="btn-bold" onclick="formatText('bold')" title="Bold"><b>B</b></button>
-          <button class="tool-btn" id="btn-italic" onclick="formatText('italic')" title="Italic"><i>I</i></button>
-          <button class="tool-btn" id="btn-underline" onclick="formatText('underline')" title="Underline"><u>U</u></button>
-          <button class="tool-btn" id="btn-strikethrough" onclick="formatText('strikeThrough')" title="Strikethrough"><s>S</s></button>
+          <button class="tool-btn" id="tb-bold"          onclick="fmt('bold')"                 title="Bold"><b>B</b></button>
+          <button class="tool-btn" id="tb-italic"        onclick="fmt('italic')"               title="Italic"><i>I</i></button>
+          <button class="tool-btn" id="tb-underline"     onclick="fmt('underline')"            title="Underline"><u>U</u></button>
+          <button class="tool-btn" id="tb-strike"        onclick="fmt('strikeThrough')"        title="Strikethrough"><s>S</s></button>
           <div class="tool-sep"></div>
-          <button class="tool-btn wide" id="btn-ul" onclick="formatText('insertUnorderedList')" title="Bullet list">• List</button>
-          <button class="tool-btn wide" id="btn-ol" onclick="formatText('insertOrderedList')" title="Numbered list">1. List</button>
-          <button class="tool-btn wide" id="btn-quote" onclick="insertBlockquote()" title="Blockquote">" Quote</button>
+          <button class="tool-btn" id="tb-ul"            onclick="fmt('insertUnorderedList')"  title="Bullet list">• List</button>
+          <button class="tool-btn" id="tb-ol"            onclick="fmt('insertOrderedList')"    title="Numbered list">1. List</button>
+          <button class="tool-btn" id="tb-quote"         onclick="insertBlockquote()"          title="Blockquote">" Quote</button>
           <div class="tool-sep"></div>
-          <button class="tool-btn wide" id="btn-sz-small" onclick="setBodyFontSize('small')" title="Small text">A−</button>
-          <button class="tool-btn wide" id="btn-sz-medium" onclick="setBodyFontSize('medium')" title="Medium text">A</button>
-          <button class="tool-btn wide" id="btn-sz-large" onclick="setBodyFontSize('large')" title="Large text">A+</button>
+          <button class="tool-btn" id="tb-left"          onclick="fmt('justifyLeft')"          title="Align left">≡L</button>
+          <button class="tool-btn" id="tb-center"        onclick="fmt('justifyCenter')"        title="Center">≡C</button>
+          <button class="tool-btn" id="tb-right"         onclick="fmt('justifyRight')"         title="Right">≡R</button>
           <div class="tool-sep"></div>
-          <button class="tool-btn wide" id="btn-align-left" onclick="formatText('justifyLeft')" title="Align left">≡L</button>
-          <button class="tool-btn wide" id="btn-align-center" onclick="formatText('justifyCenter')" title="Center">≡C</button>
-          <button class="tool-btn wide" id="btn-align-right" onclick="formatText('justifyRight')" title="Align right">≡R</button>
+          <button class="tool-btn" id="tb-sm"            onclick="setFontSize('small')"        title="Small">A−</button>
+          <button class="tool-btn" id="tb-md"            onclick="setFontSize('medium')"       title="Medium">A</button>
+          <button class="tool-btn" id="tb-lg"            onclick="setFontSize('large')"        title="Large">A+</button>
         </div>
 
         <div class="body-field" id="entry-body" contenteditable="true" data-placeholder="Pour your heart out here... this is your space."></div>
-
         <button class="save-btn" onclick="saveEntry()">Save Entry</button>
       </div>
 
@@ -1018,7 +697,6 @@
           <button onclick="deleteCurrentEntry()" style="padding:0.55rem 1.2rem;border:1px solid #ddd;color:#c0392b;background:transparent;border-radius:4px;font-family:var(--sans);font-size:0.8rem;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;">Delete</button>
         </div>
       </div>
-
     </main>
   </div>
 </div>
@@ -1026,29 +704,81 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// State
+// ── STATE ──
 let entries = [];
 let currentTags = [];
 let activeEntryId = null;
 let editingId = null;
 let avatarOpen = false;
 let activeNotebookId = null;
-const API_BASE = 'http://localhost:3000';
-let apiPassphrase = sessionStorage.getItem('passphrase') || '';
+let currentFontSize = 'medium';
 
-// Auth
+// ── API CONFIG ──
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_BASE = IS_LOCAL ? 'http://localhost:3000' : 'https://folio-nbzs.onrender.com';
+console.log('[Folio] API_BASE:', API_BASE);
+
+// Use localStorage so passphrase survives logout/re-open
+let apiPassphrase = localStorage.getItem('folio_passphrase') || '';
+
+// ── AUTO LOGIN if passphrase saved ──
+window.addEventListener('DOMContentLoaded', async () => {
+  if (apiPassphrase) {
+    try {
+      await apiFetch('/notebooks');
+      await ensureNotebook();
+      await loadEntries();
+      document.getElementById('login-page').style.display = 'none';
+      document.getElementById('app-page').style.display = 'block';
+      renderSidebar(entries);
+      renderNotebookGrid(entries);
+      showNotebook();
+    } catch (e) {
+      // saved passphrase failed — show login
+      apiPassphrase = '';
+      localStorage.removeItem('folio_passphrase');
+    }
+  }
+});
+
+// ── AUTH ──
 async function enterJournal() {
   const pass = (document.getElementById('pass-field').value || '').trim();
   const errorEl = document.getElementById('login-error');
-  errorEl.textContent = 'Incorrect passphrase. Try again.';
-  if (pass !== 'Ozemoya') {
+  const btn = document.querySelector('.login-btn');
+
+  if (!pass) {
+    errorEl.textContent = 'Please enter your passphrase.';
     errorEl.style.display = 'block';
-    document.getElementById('pass-field').focus();
     return;
   }
+
   errorEl.style.display = 'none';
+  btn.textContent = 'Opening…';
+  btn.disabled = true;
   apiPassphrase = pass;
-  sessionStorage.setItem('passphrase', pass);
+
+  try {
+    await apiFetch('/notebooks');
+  } catch (err) {
+    btn.textContent = 'Open My Journal';
+    btn.disabled = false;
+    if (err.message && (err.message.includes('401') || err.message.includes('403'))) {
+      errorEl.textContent = 'Incorrect passphrase. Try again.';
+    } else if (err.name === 'AbortError') {
+      errorEl.textContent = 'Server is waking up. Please wait 30s and try again.';
+    } else if (err.message && err.message.includes('Failed to fetch')) {
+      errorEl.textContent = 'Cannot reach the server. Check your connection.';
+    } else {
+      errorEl.textContent = `Connection error: ${err.message}`;
+    }
+    errorEl.style.display = 'block';
+    apiPassphrase = '';
+    return;
+  }
+
+  // Save to localStorage so entries load on next visit without re-entering
+  localStorage.setItem('folio_passphrase', pass);
 
   try {
     await ensureNotebook();
@@ -1059,8 +789,11 @@ async function enterJournal() {
     renderNotebookGrid(entries);
     showNotebook();
   } catch (err) {
-    errorEl.textContent = 'Unable to connect to the server.';
+    errorEl.textContent = 'Logged in but failed to load. Please refresh.';
     errorEl.style.display = 'block';
+  } finally {
+    btn.textContent = 'Open My Journal';
+    btn.disabled = false;
   }
 }
 
@@ -1069,71 +802,14 @@ function signOut() {
   document.getElementById('login-page').style.display = 'flex';
   document.getElementById('pass-field').value = '';
   document.getElementById('login-error').style.display = 'none';
-  sessionStorage.removeItem('passphrase');
+  // Keep passphrase in localStorage — entries stay accessible on next visit
   apiPassphrase = '';
   activeNotebookId = null;
   entries = [];
   closeAvatarMenu();
 }
 
-// New Entry
-function openNewEntry() {
-  editingId = null;
-  activeEntryId = null;
-  currentTags = [];
-  document.getElementById('entry-title').value = '';
-  document.getElementById('entry-body').textContent = '';
-  document.getElementById('tags-container').innerHTML = '';
-  document.getElementById('tag-field').value = '';
-  document.getElementById('editor-date').textContent = formatDate(new Date());
-  setBodyFontSize('medium');
-
-  show('editor-form');
-  hide('welcome-state');
-  hide('notebook-view');
-  hide('entry-view');
-  document.getElementById('entry-title').focus();
-  document.querySelectorAll('.entry-item').forEach(i => i.classList.remove('active'));
-}
-
-// Sidebar
-function renderSidebar(list) {
-  const el = document.getElementById('entry-list');
-  el.innerHTML = '';
-
-  if (!list.length) {
-    el.innerHTML = '<li style="padding:.5rem .75rem;font-size:.8rem;color:var(--ink-muted);font-style:italic;">No entries yet.</li>';
-    return;
-  }
-
-  list.slice().reverse().forEach(e => {
-    const li = document.createElement('li');
-    li.className = `entry-item ${e.id === activeEntryId ? 'active' : ''}`;
-    li.dataset.id = e.id;
-    li.innerHTML = `
-      <div class="entry-item-date">${formatDateShort(new Date(e.date))}</div>
-      <div class="entry-item-title">${e.title || 'Untitled'}</div>
-    `;
-    li.onclick = () => viewEntry(e.id);
-    el.appendChild(li);
-  });
-}
-
-function filterEntries(q) {
-  if (!q.trim()) {
-    renderSidebar(entries);
-    renderNotebookGrid(entries);
-    return;
-  }
-  const filtered = entries.filter(e =>
-    (e.title || '').toLowerCase().includes(q.toLowerCase()) ||
-    (e.body || '').toLowerCase().includes(q.toLowerCase()) ||
-    (e.tags || []).some(t => t.toLowerCase().includes(q.toLowerCase()))
-  );
-  renderSidebar(filtered);
-  renderNotebookGrid(filtered);
-}
-
+// ── API FETCH ──
 async function apiFetch(path, options = {}) {
   const opts = { method: 'GET', ...options };
   opts.headers = {
@@ -1141,22 +817,34 @@ async function apiFetch(path, options = {}) {
     'X-Passphrase': apiPassphrase,
     ...(options.headers || {})
   };
-  if (opts.body && typeof opts.body !== 'string') {
-    opts.body = JSON.stringify(opts.body);
-  }
+  if (opts.body && typeof opts.body !== 'string') opts.body = JSON.stringify(opts.body);
 
-  const res = await fetch(`${API_BASE}${path}`, opts);
+  const controller = new AbortController();
+  const tid = setTimeout(() => controller.abort(), 45000);
+  opts.signal = controller.signal;
+
+  const url = `${API_BASE}${path}`;
+  console.log(`[Folio] ${opts.method} ${url}`);
+
+  let res;
+  try {
+    res = await fetch(url, opts);
+  } catch (err) {
+    clearTimeout(tid);
+    console.error(`[Folio] Network error:`, err);
+    throw err;
+  }
+  clearTimeout(tid);
+
   if (!res.ok) {
     let message = `Request failed (${res.status})`;
-    try {
-      const err = await res.json();
-      if (err && err.error) message = err.error;
-    } catch {}
+    try { const e = await res.json(); if (e.error) message = e.error; } catch {}
     throw new Error(message);
   }
   return res.json();
 }
 
+// ── NOTEBOOK / ENTRIES ──
 async function ensureNotebook() {
   const notebooks = await apiFetch('/notebooks');
   if (!notebooks.length) {
@@ -1171,12 +859,10 @@ function blocksToText(blocks) {
   if (!Array.isArray(blocks)) return '';
   return blocks.map(b => (b && b.text ? b.text : '')).join('\n\n').trim();
 }
-
 function blocksToHtml(blocks) {
   if (!Array.isArray(blocks)) return '';
   return blocks.map(b => (b && b.html ? b.html : '')).join('\n').trim();
 }
-
 function pageToEntry(page) {
   return {
     id: page.id,
@@ -1194,44 +880,122 @@ async function loadEntries() {
   entries = pages.map(pageToEntry);
 }
 
-// View Entry
+// ── TOOLBAR ──
+const TOOLBAR_CMDS = {
+  'tb-bold': 'bold', 'tb-italic': 'italic',
+  'tb-underline': 'underline', 'tb-strike': 'strikeThrough',
+  'tb-ul': 'insertUnorderedList', 'tb-ol': 'insertOrderedList',
+  'tb-left': 'justifyLeft', 'tb-center': 'justifyCenter', 'tb-right': 'justifyRight'
+};
+
+function fmt(cmd) {
+  document.getElementById('entry-body').focus();
+  document.execCommand(cmd);
+  updateToolbar();
+}
+
+function insertBlockquote() {
+  const body = document.getElementById('entry-body');
+  body.focus();
+  const sel = window.getSelection();
+  const selected = sel && sel.toString();
+  const text = selected || 'Quote here…';
+  document.execCommand('insertHTML', false,
+    `<blockquote style="border-left:3px solid var(--gold);margin:0.5em 0;padding:0.4em 1em;color:var(--ink-muted);font-style:italic;">${text}</blockquote>`
+  );
+  updateToolbar();
+}
+
+function setFontSize(size) {
+  const map = { small: '0.92rem', medium: '1.05rem', large: '1.18rem' };
+  document.getElementById('entry-body').style.fontSize = map[size] || map.medium;
+  currentFontSize = size;
+  ['small','medium','large'].forEach(s => {
+    const id = s === 'small' ? 'tb-sm' : s === 'medium' ? 'tb-md' : 'tb-lg';
+    document.getElementById(id).classList.toggle('active', s === size);
+  });
+}
+
+function updateToolbar() {
+  Object.entries(TOOLBAR_CMDS).forEach(([id, cmd]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.classList.toggle('active', document.queryCommandState(cmd));
+  });
+}
+
+document.addEventListener('selectionchange', () => {
+  if (document.activeElement && document.activeElement.id === 'entry-body') updateToolbar();
+});
+
+// ── SIDEBAR ──
+function renderSidebar(list) {
+  const el = document.getElementById('entry-list');
+  el.innerHTML = '';
+  if (!list.length) {
+    el.innerHTML = '<li style="padding:.5rem .75rem;font-size:.8rem;color:var(--ink-muted);font-style:italic;">No entries yet.</li>';
+    return;
+  }
+  list.slice().reverse().forEach(e => {
+    const li = document.createElement('li');
+    li.className = `entry-item ${e.id === activeEntryId ? 'active' : ''}`;
+    li.dataset.id = e.id;
+    li.innerHTML = `
+      <div class="entry-item-date">${formatDateShort(new Date(e.date))}</div>
+      <div class="entry-item-title">${e.title || 'Untitled'}</div>
+    `;
+    li.onclick = () => viewEntry(e.id);
+    el.appendChild(li);
+  });
+}
+
+function filterEntries(q) {
+  if (!q.trim()) { renderSidebar(entries); renderNotebookGrid(entries); return; }
+  const filtered = entries.filter(e =>
+    (e.title || '').toLowerCase().includes(q.toLowerCase()) ||
+    (e.body || '').toLowerCase().includes(q.toLowerCase()) ||
+    (e.tags || []).some(t => t.toLowerCase().includes(q.toLowerCase()))
+  );
+  renderSidebar(filtered);
+  renderNotebookGrid(filtered);
+}
+
+// ── NEW ENTRY ──
+function openNewEntry() {
+  editingId = null; activeEntryId = null; currentTags = [];
+  document.getElementById('entry-title').value = '';
+  document.getElementById('entry-body').innerHTML = '';
+  document.getElementById('tags-container').innerHTML = '';
+  document.getElementById('tag-field').value = '';
+  document.getElementById('editor-date').textContent = formatDate(new Date());
+  setFontSize('medium');
+  show('editor-form'); hide('welcome-state'); hide('notebook-view'); hide('entry-view');
+  document.getElementById('entry-title').focus();
+  document.querySelectorAll('.entry-item').forEach(i => i.classList.remove('active'));
+}
+
+// ── VIEW ENTRY ──
 function viewEntry(id) {
   const e = entries.find(x => x.id === id);
   if (!e) return;
-
   activeEntryId = id;
-  hide('welcome-state');
-  hide('editor-form');
-  hide('notebook-view');
-  show('entry-view');
-
+  hide('welcome-state'); hide('editor-form'); hide('notebook-view'); show('entry-view');
   document.getElementById('view-date').textContent = formatDate(new Date(e.date));
   document.getElementById('view-title').textContent = e.title || 'Untitled';
   document.getElementById('view-body').innerHTML = e.bodyHtml || (e.body || '').replace(/\n/g, '<br>');
-
-  const tagsEl = document.getElementById('view-tags');
-  tagsEl.innerHTML = (e.tags || []).map(t => `<span class="tag-pill">${t}</span>`).join('');
-
-  document.querySelectorAll('.entry-item').forEach(i => {
-    i.classList.toggle('active', i.dataset.id === id);
-  });
+  document.getElementById('view-tags').innerHTML = (e.tags || []).map(t => `<span class="tag-pill">${t}</span>`).join('');
+  document.querySelectorAll('.entry-item').forEach(i => i.classList.toggle('active', i.dataset.id === id));
 }
 
 function editCurrentEntry() {
   const e = entries.find(x => x.id === activeEntryId);
   if (!e) return;
-
   editingId = e.id;
   currentTags = [...(e.tags || [])];
-
   document.getElementById('entry-title').value = e.title || '';
   document.getElementById('entry-body').innerHTML = e.bodyHtml || '';
   document.getElementById('editor-date').textContent = formatDate(new Date(e.date));
   renderTagPills();
-
-  show('editor-form');
-  hide('entry-view');
-  hide('welcome-state');
+  show('editor-form'); hide('entry-view'); hide('welcome-state');
 }
 
 async function deleteCurrentEntry() {
@@ -1240,179 +1004,64 @@ async function deleteCurrentEntry() {
   try {
     await apiFetch(`/notebooks/${activeNotebookId}/pages/${activeEntryId}`, { method: 'DELETE' });
     await loadEntries();
-    renderSidebar(entries);
-    renderNotebookGrid(entries);
-    activeEntryId = null;
-    hide('entry-view');
-    showNotebook();
+    renderSidebar(entries); renderNotebookGrid(entries);
+    activeEntryId = null; hide('entry-view'); showNotebook();
     toast('Entry deleted.');
-  } catch (err) {
-    toast('Delete failed.');
-  }
+  } catch { toast('Delete failed.'); }
 }
 
-// Save
+// ── SAVE ──
 async function saveEntry() {
   const title = document.getElementById('entry-title').value.trim();
   const bodyEl = document.getElementById('entry-body');
   const bodyText = bodyEl.textContent.trim();
   const bodyHtml = bodyEl.innerHTML.trim();
 
-  if (!bodyText) {
-    toast('Please write something before saving.');
-    return;
-  }
-
+  if (!bodyText) { toast('Please write something before saving.'); return; }
   const blocks = [{ type: 'rich', text: bodyText, html: bodyHtml }];
 
   try {
     if (editingId) {
       const existing = entries.find(x => x.id === editingId);
-      const payload = {
-        title,
-        blocks,
-        tags: [...currentTags],
-        date: existing && existing.date ? existing.date : new Date().toISOString()
-      };
       await apiFetch(`/notebooks/${activeNotebookId}/pages/${editingId}`, {
         method: 'PUT',
-        body: payload
+        body: { title, blocks, tags: [...currentTags], date: existing?.date || new Date().toISOString() }
       });
       toast('Entry updated');
     } else {
-      const payload = {
-        title,
-        blocks,
-        tags: [...currentTags],
-        date: new Date().toISOString()
-      };
       const created = await apiFetch(`/notebooks/${activeNotebookId}/pages`, {
         method: 'POST',
-        body: payload
+        body: { title, blocks, tags: [...currentTags], date: new Date().toISOString() }
       });
       activeEntryId = created.id;
       toast('Entry saved');
     }
-
     await loadEntries();
-    renderSidebar(entries);
-    renderNotebookGrid(entries);
+    renderSidebar(entries); renderNotebookGrid(entries);
     viewEntry(activeEntryId);
-  } catch (err) {
-    toast('Save failed.');
-  }
+  } catch { toast('Save failed.'); }
 }
 
-// Tags
+// ── TAGS ──
 function handleTag(e) {
   if (e.key === 'Enter' || e.key === ',') {
     e.preventDefault();
     const val = e.target.value.trim().replace(/,/g, '');
-    if (val && !currentTags.includes(val)) {
-      currentTags.push(val);
-      renderTagPills();
-    }
+    if (val && !currentTags.includes(val)) { currentTags.push(val); renderTagPills(); }
     e.target.value = '';
   } else if (e.key === 'Backspace' && !e.target.value && currentTags.length) {
-    currentTags.pop();
-    renderTagPills();
+    currentTags.pop(); renderTagPills();
   }
 }
-
 function renderTagPills() {
-  const c = document.getElementById('tags-container');
-  c.innerHTML = currentTags.map((t, i) =>
+  document.getElementById('tags-container').innerHTML = currentTags.map((t, i) =>
     `<span class="tag-pill">${t}<button class="tag-remove" onclick="removeTag(${i})">&times;</button></span>`
   ).join('');
 }
+function removeTag(i) { currentTags.splice(i, 1); renderTagPills(); }
 
-function removeTag(i) {
-  currentTags.splice(i, 1);
-  renderTagPills();
-}
-
-// Formatting
-let currentFontSize = 'medium';
-
-function formatText(cmd) {
-  const body = document.getElementById('entry-body');
-  body.focus();
-  document.execCommand(cmd);
-  updateToolbarState();
-}
-
-function insertBlockquote() {
-  const body = document.getElementById('entry-body');
-  body.focus();
-  const sel = window.getSelection();
-  const selected = sel && sel.toString();
-  if (selected) {
-    document.execCommand('insertHTML', false,
-      `<blockquote style="border-left:3px solid var(--gold);margin:0.5em 0;padding:0.4em 1em;color:var(--ink-muted);font-style:italic;">${selected}</blockquote>`
-    );
-  } else {
-    document.execCommand('insertHTML', false,
-      `<blockquote style="border-left:3px solid var(--gold);margin:0.5em 0;padding:0.4em 1em;color:var(--ink-muted);font-style:italic;">Quote here…</blockquote>`
-    );
-  }
-  updateToolbarState();
-}
-
-function insertText(text) {
-  const el = document.getElementById('entry-body');
-  el.focus();
-  document.execCommand('insertText', false, text);
-}
-
-function insertQuote() {
-  const selection = window.getSelection();
-  const selected = selection && selection.toString();
-  insertText(selected ? `"${selected}"` : '"');
-}
-
-function setBodyFontSize(size) {
-  const map = { small: '0.92rem', medium: '1.05rem', large: '1.18rem' };
-  document.getElementById('entry-body').style.fontSize = map[size] || map.medium;
-  currentFontSize = size;
-  // Update font size button highlights
-  ['small','medium','large'].forEach(s => {
-    const btn = document.getElementById(`btn-sz-${s}`);
-    if (btn) btn.classList.toggle('active', s === size);
-  });
-}
-
-function updateToolbarState() {
-  // Bold / italic / underline / strikethrough — reflect actual selection state
-  const checks = {
-    'btn-bold': 'bold',
-    'btn-italic': 'italic',
-    'btn-underline': 'underline',
-    'btn-strikethrough': 'strikeThrough',
-    'btn-ul': 'insertUnorderedList',
-    'btn-ol': 'insertOrderedList',
-    'btn-align-left': 'justifyLeft',
-    'btn-align-center': 'justifyCenter',
-    'btn-align-right': 'justifyRight',
-  };
-  Object.entries(checks).forEach(([id, cmd]) => {
-    const btn = document.getElementById(id);
-    if (btn) btn.classList.toggle('active', document.queryCommandState(cmd));
-  });
-}
-
-// Keep toolbar in sync as the cursor moves around
-document.addEventListener('selectionchange', () => {
-  if (document.activeElement && document.activeElement.id === 'entry-body') {
-    updateToolbarState();
-  }
-});
-
-function autoResize(el) {
-  el.style.height = 'auto';
-  el.style.height = el.scrollHeight + 'px';
-}
-
-// Utils
+// ── UTILS ──
+function autoResize(el) { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
 function show(id) { document.getElementById(id).style.display = 'block'; }
 function hide(id) { document.getElementById(id).style.display = 'none'; }
 
@@ -1422,42 +1071,28 @@ function toggleAvatarMenu() {
   avatarOpen = !avatarOpen;
   avatar.classList.toggle('open', avatarOpen);
 }
-
 function closeAvatarMenu() {
   const avatar = document.getElementById('avatar');
   if (!avatar) return;
   avatarOpen = false;
   avatar.classList.remove('open');
 }
-
 document.addEventListener('click', e => {
   const avatar = document.getElementById('avatar');
-  if (!avatar) return;
-  if (avatar.contains(e.target)) return;
+  if (!avatar || avatar.contains(e.target)) return;
   closeAvatarMenu();
 });
+
 function showNotebook() {
-  if (!entries.length) {
-    show('welcome-state');
-    hide('notebook-view');
-    return;
-  }
-  hide('welcome-state');
-  hide('editor-form');
-  hide('entry-view');
-  show('notebook-view');
+  if (!entries.length) { show('welcome-state'); hide('notebook-view'); return; }
+  hide('welcome-state'); hide('editor-form'); hide('entry-view'); show('notebook-view');
 }
 
 function renderNotebookGrid(list) {
   const grid = document.getElementById('notebook-grid');
   if (!grid) return;
   grid.innerHTML = '';
-
-  if (!list.length) {
-    grid.innerHTML = '<div style="font-size:0.85rem;color:var(--ink-muted);">No writeups yet.</div>';
-    return;
-  }
-
+  if (!list.length) { grid.innerHTML = '<div style="font-size:0.85rem;color:var(--ink-muted);">No writeups yet.</div>'; return; }
   list.slice().reverse().forEach(e => {
     const card = document.createElement('div');
     card.className = 'notebook-card';
@@ -1473,32 +1108,20 @@ function renderNotebookGrid(list) {
   });
 }
 
-function formatDate(d) {
-  return d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-}
-
-function formatDateShort(d) {
-  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-}
+function formatDate(d) { return d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }); }
+function formatDateShort(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); }
 
 function toast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-function openSettings() {
-  toast('Settings coming soon ✨');
-}
-
-// Keyboard shortcut: Ctrl/Cmd + S
+// Ctrl/Cmd + S
 document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 's') {
     e.preventDefault();
-    if (document.getElementById('editor-form').style.display !== 'none') {
-      saveEntry();
-    }
+    if (document.getElementById('editor-form').style.display !== 'none') saveEntry();
   }
 });
 </script>
