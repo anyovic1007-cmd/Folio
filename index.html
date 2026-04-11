@@ -549,217 +549,41 @@
   }
 
   .toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  padding: 0.4rem 0.5rem;
-  background: #fff;
-  border: 1px solid var(--cream-border);
-  border-bottom: none;
-  border-radius: 4px 4px 0 0;
-}
-.tool-btn {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background: transparent;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-  transition: background 0.15s, color 0.15s;
-}
-.tool-btn:hover {
-  background: var(--cream-dark);
-  color: var(--royal);
-}
-.tool-btn.active {
-  background: var(--royal);
-  color: var(--cream);
-  box-shadow: 0 0 0 2px rgba(26,58,107,0.18);
-}
-.tool-btn.wide {
-  width: auto;
-  min-width: 54px;
-  padding: 0 8px;
-  font-size: 0.72rem;
-}
- 
-.tool-sep {
-  width: 1px;
-  background: var(--cream-border);
-  margin: 4px 2px;
-  align-self: stretch;
-}
-
-.mobile-search {
-  display: none;
-  margin-bottom: 1.25rem;
-}
-
-.mobile-search input {
-  width: 100%;
-  background: #fff;
-  border: 1px solid var(--cream-border);
-  border-radius: 4px;
-  padding: 0.55rem 0.75rem;
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--ink);
-  outline: none;
-}
-
-.mobile-search input:focus {
-  border-color: var(--royal-mid);
-}
-
-@media (max-width: 900px) {
-  .app-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .editor-area {
-    max-width: none;
-    padding: 1.5rem 1rem 3.5rem;
-  }
-
-  .top-nav {
-    height: 60px;
-    padding: 0 1rem;
-  }
-
-  .new-entry-btn {
-    min-height: 40px;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.8rem;
-  }
-
-  .avatar-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-
-  .mobile-search {
-    display: block;
-  }
-
-  .title-field {
-    font-size: clamp(1.75rem, 6vw, 2.35rem);
-    margin-bottom: 1.1rem;
-  }
-
-  .toolbar {
-    gap: 5px;
-    padding: 0.55rem;
-    border-radius: 8px 8px 0 0;
+    display: flex;
+    gap: 2px;
+    padding: 0.4rem 0.5rem;
+    background: #fff;
+    border: 1px solid var(--cream-border);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
   }
 
   .tool-btn {
-    min-width: 38px;
-    width: 38px;
-    height: 38px;
-    border-radius: 7px;
-    font-size: 0.88rem;
-    background: var(--cream);
-    border: 1px solid var(--cream-border);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-muted);
+    transition: background 0.15s, color 0.15s;
   }
 
-  .tool-btn.wide {
-    min-width: 60px;
-    padding: 0 8px;
-    font-size: 0.76rem;
-  }
+  .tool-btn:hover { background: var(--cream-dark); color: var(--royal); }
+  .tool-btn.active { background: var(--royal); color: #fff; box-shadow: 0 0 0 2px rgba(26,58,107,0.25); }
 
   .tool-sep {
-    display: none;
+    width: 1px;
+    background: var(--cream-border);
+    margin: 4px 2px;
+    align-self: stretch;
   }
 
-  .body-field {
-    min-height: 46vh;
-    padding: 1.2rem 1rem;
-    font-size: 1.08rem;
-    line-height: 1.8;
-    border-radius: 0 0 8px 8px;
-  }
-
-  .tag-input-wrapper {
-    min-height: 42px;
-    padding: 0.55rem 0.75rem;
-    border-radius: 8px;
-  }
-
-  .tag-field,
-  .mobile-search input {
-    font-size: 1rem;
-  }
-
-  .save-btn {
-    width: 100%;
-    min-height: 46px;
-    font-size: 0.86rem;
-    border-radius: 8px;
-  }
-
-  .notebook-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .notebook-card {
-    padding: 1rem;
-    min-height: 112px;
-  }
-
-  .notebook-title {
-    font-size: 1.1rem;
-  }
-
-  .notebook-excerpt,
-  .entry-view-body {
-    font-size: 1.02rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .app-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .editor-area {
-    padding: 1.25rem 0.9rem 3rem;
-  }
-
-  .top-nav {
-    padding: 0 1rem;
-  }
-
-  .new-entry-btn {
-    min-height: 40px;
-    padding: 0.5rem 0.8rem;
-    font-size: 0.76rem;
-  }
-
-  .nav-brand {
-    font-size: 1.25rem;
-  }
-
-  .mobile-search {
-    display: block;
-  }
-}
   .body-field {
     width: 100%;
     min-height: 380px;
@@ -976,16 +800,6 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--cream-border); border-radius: 2px; }
 
-  @media (max-width: 640px) {
-    .app-layout { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
-    .editor-area { padding: 1.5rem 1rem 3rem; }
-    .top-nav { padding: 0 1rem; }
-    .new-entry-btn { padding: 0.4rem 0.85rem; font-size: 0.75rem; }
-    .nav-brand { font-size: 1.25rem; }
-    .mobile-search { display: block; }
-  }
-
   .mobile-search {
     display: none;
     margin-bottom: 1.25rem;
@@ -995,15 +809,51 @@
     width: 100%;
     background: #fff;
     border: 1px solid var(--cream-border);
-    border-radius: 4px;
-    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    padding: 0.65rem 0.85rem;
     font-family: var(--sans);
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--ink);
     outline: none;
+    min-height: 44px;
   }
 
   .mobile-search input:focus { border-color: var(--royal-mid); }
+
+@media (max-width: 900px) {
+  .app-layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .editor-area { max-width: none; padding: 1.5rem 1.1rem 5rem; }
+  .top-nav { height: 64px; padding: 0 1.1rem; }
+  .new-entry-btn { min-height: 44px; padding: 0 1.1rem; font-size: 0.85rem; border-radius: 6px; }
+  .avatar-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+  .avatar-dropdown { min-width: 180px; }
+  .avatar-dropdown a { padding: 0.75rem 1.1rem; font-size: 0.9rem; }
+  .mobile-search { display: block; }
+  .title-field { font-size: clamp(1.9rem, 6.5vw, 2.5rem); margin-bottom: 1.2rem; }
+  .toolbar { flex-wrap: wrap; gap: 5px; padding: 0.65rem 0.6rem; border-radius: 8px 8px 0 0; }
+  .tool-btn { min-width: 44px; width: 44px; height: 44px; border-radius: 7px; font-size: 0.95rem; background: var(--cream); border: 1px solid var(--cream-border); }
+  .tool-btn.wide { min-width: 58px; padding: 0 10px; font-size: 0.8rem; height: 44px; }
+  .tool-sep { display: none; }
+  .body-field { min-height: 52vh; padding: 1.3rem 1.1rem; font-size: 1.12rem; line-height: 1.85; border-radius: 0 0 8px 8px; }
+  .tag-input-wrapper { min-height: 48px; padding: 0.6rem 0.85rem; border-radius: 8px; }
+  .tag-field { font-size: 1rem; }
+  .save-btn { width: 100%; min-height: 52px; font-size: 0.9rem; border-radius: 8px; margin-top: 1.4rem; }
+  .notebook-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .notebook-card { padding: 1.1rem 1rem 1.1rem 1.3rem; min-height: 120px; }
+  .notebook-title { font-size: 1.15rem; }
+  .notebook-excerpt, .entry-view-body { font-size: 1.05rem; line-height: 1.8; }
+  .entry-view-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .back-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+  .welcome-cta { padding: 0.85rem 2.5rem; font-size: 0.9rem; min-height: 48px; }
+}
+
+@media (max-width: 640px) {
+  .editor-area { padding: 1.2rem 0.9rem 4.5rem; }
+  .top-nav { padding: 0 0.9rem; height: 60px; }
+  .new-entry-btn { min-height: 42px; padding: 0 0.85rem; font-size: 0.8rem; }
+  .nav-brand { font-size: 1.3rem; }
+}
 </style>
 </head>
 <body>
@@ -1043,6 +893,10 @@
       </div>
       <button class="login-btn" onclick="enterJournal()">Open My Journal</button>
     </div>
+
+    <p class="login-footer" style="margin-top:1.2rem;">
+      No account? <a onclick="enterJournal()">Begin writing →</a>
+    </p>
   </div>
 </div>
 
@@ -1063,6 +917,7 @@
       <div class="avatar-btn" id="avatar" onclick="toggleAvatarMenu()">
         T
         <div class="avatar-dropdown">
+          <a onclick="showNotebook(); closeAvatarMenu();">Saved Writeups</a>
           <a class="sign-out" onclick="signOut()">Sign out</a>
         </div>
       </div>
@@ -1123,17 +978,23 @@
         <textarea class="title-field" id="entry-title" placeholder="What's the Title...?" rows="1" oninput="autoResize(this)"></textarea>
 
         <!-- Toolbar -->
-        <div class="toolbar">
-          <button class="tool-btn" onclick="formatText('bold')" title="Bold"><b>B</b></button>
-          <button class="tool-btn" onclick="formatText('italic')" title="Italic"><i>I</i></button>
-          <button class="tool-btn" onclick="formatText('underline')" title="Underline"><u>U</u></button>
+        <div class="toolbar" id="toolbar">
+          <button class="tool-btn" id="btn-bold" onclick="formatText('bold')" title="Bold"><b>B</b></button>
+          <button class="tool-btn" id="btn-italic" onclick="formatText('italic')" title="Italic"><i>I</i></button>
+          <button class="tool-btn" id="btn-underline" onclick="formatText('underline')" title="Underline"><u>U</u></button>
+          <button class="tool-btn" id="btn-strikethrough" onclick="formatText('strikeThrough')" title="Strikethrough"><s>S</s></button>
           <div class="tool-sep"></div>
-          <button class="tool-btn" style="font-size:0.7rem;width:auto;padding:0 6px;" onclick="insertText('\u2022 ')">&#8226; List</button>
-          <button class="tool-btn" style="font-size:0.7rem;width:auto;padding:0 6px;" onclick="insertQuote()">&quot; Quote</button>
+          <button class="tool-btn wide" id="btn-ul" onclick="formatText('insertUnorderedList')" title="Bullet list">• List</button>
+          <button class="tool-btn wide" id="btn-ol" onclick="formatText('insertOrderedList')" title="Numbered list">1. List</button>
+          <button class="tool-btn wide" id="btn-quote" onclick="insertBlockquote()" title="Blockquote">" Quote</button>
           <div class="tool-sep"></div>
-          <button class="tool-btn" style="font-size:0.8rem;width:auto;padding:0 6px;" onclick="setBodyFontSize('small')" title="Small text">A-</button>
-          <button class="tool-btn" style="font-size:0.8rem;width:auto;padding:0 6px;" onclick="setBodyFontSize('medium')" title="Medium text">A</button>
-          <button class="tool-btn" style="font-size:0.8rem;width:auto;padding:0 6px;" onclick="setBodyFontSize('large')" title="Large text">A+</button>
+          <button class="tool-btn wide" id="btn-sz-small" onclick="setBodyFontSize('small')" title="Small text">A−</button>
+          <button class="tool-btn wide" id="btn-sz-medium" onclick="setBodyFontSize('medium')" title="Medium text">A</button>
+          <button class="tool-btn wide" id="btn-sz-large" onclick="setBodyFontSize('large')" title="Large text">A+</button>
+          <div class="tool-sep"></div>
+          <button class="tool-btn wide" id="btn-align-left" onclick="formatText('justifyLeft')" title="Align left">≡L</button>
+          <button class="tool-btn wide" id="btn-align-center" onclick="formatText('justifyCenter')" title="Center">≡C</button>
+          <button class="tool-btn wide" id="btn-align-right" onclick="formatText('justifyRight')" title="Align right">≡R</button>
         </div>
 
         <div class="body-field" id="entry-body" contenteditable="true" data-placeholder="Pour your heart out here... this is your space."></div>
@@ -1172,57 +1033,21 @@ let activeEntryId = null;
 let editingId = null;
 let avatarOpen = false;
 let activeNotebookId = null;
-
-// --- API CONFIG ---
-// Automatically uses deployed backend in production, localhost in dev
-const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_BASE = IS_LOCAL ? 'http://localhost:3000' : 'https://folio-nbzs.onrender.com';
-console.log('[Folio] API_BASE:', API_BASE);
-
+const API_BASE = 'http://localhost:3000';
 let apiPassphrase = sessionStorage.getItem('passphrase') || '';
 
 // Auth
 async function enterJournal() {
   const pass = (document.getElementById('pass-field').value || '').trim();
   const errorEl = document.getElementById('login-error');
-  const btn = document.querySelector('.login-btn');
-
-  if (!pass) {
-    errorEl.textContent = 'Please enter your passphrase.';
+  errorEl.textContent = 'Incorrect passphrase. Try again.';
+  if (pass !== 'Ozemoya') {
     errorEl.style.display = 'block';
+    document.getElementById('pass-field').focus();
     return;
   }
-
   errorEl.style.display = 'none';
-  btn.textContent = 'Opening…';
-  btn.disabled = true;
-
-  // Set passphrase and verify against the actual backend
   apiPassphrase = pass;
-
-  try {
-    // Real auth check: hit a protected route — server will 401 if passphrase is wrong
-    await apiFetch('/notebooks');
-  } catch (err) {
-    console.error('[Folio] Login check failed:', err);
-    btn.textContent = 'Open My Journal';
-    btn.disabled = false;
-
-    if (err.message && (err.message.includes('401') || err.message.includes('403'))) {
-      errorEl.textContent = 'Incorrect passphrase. Try again.';
-    } else if (err.name === 'AbortError') {
-      errorEl.textContent = 'Server is waking up (cold start). Please wait 30s and try again.';
-    } else if (err.message && err.message.includes('Failed to fetch')) {
-      errorEl.textContent = 'Cannot reach the server. Check your connection or try again shortly.';
-    } else {
-      errorEl.textContent = `Connection error: ${err.message}`;
-    }
-    errorEl.style.display = 'block';
-    apiPassphrase = '';
-    return;
-  }
-
-  // Passphrase accepted — proceed
   sessionStorage.setItem('passphrase', pass);
 
   try {
@@ -1234,12 +1059,8 @@ async function enterJournal() {
     renderNotebookGrid(entries);
     showNotebook();
   } catch (err) {
-    console.error('[Folio] Post-login setup failed:', err);
-    errorEl.textContent = 'Logged in but failed to load your journal. Please refresh.';
+    errorEl.textContent = 'Unable to connect to the server.';
     errorEl.style.display = 'block';
-  } finally {
-    btn.textContent = 'Open My Journal';
-    btn.disabled = false;
   }
 }
 
@@ -1324,35 +1145,15 @@ async function apiFetch(path, options = {}) {
     opts.body = JSON.stringify(opts.body);
   }
 
-  // 45s timeout — Render free tier can cold-start slowly
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 45000);
-  opts.signal = controller.signal;
-
-  const url = `${API_BASE}${path}`;
-  console.log(`[Folio] ${opts.method} ${url}`);
-
-  let res;
-  try {
-    res = await fetch(url, opts);
-  } catch (err) {
-    clearTimeout(timeoutId);
-    console.error(`[Folio] Network error on ${opts.method} ${url}:`, err);
-    throw err;
-  }
-  clearTimeout(timeoutId);
-
+  const res = await fetch(`${API_BASE}${path}`, opts);
   if (!res.ok) {
     let message = `Request failed (${res.status})`;
     try {
       const err = await res.json();
       if (err && err.error) message = err.error;
     } catch {}
-    console.error(`[Folio] API error ${res.status} on ${opts.method} ${url}: ${message}`);
     throw new Error(message);
   }
-
-  console.log(`[Folio] ${res.status} OK — ${opts.method} ${url}`);
   return res.json();
 }
 
@@ -1531,10 +1332,30 @@ function removeTag(i) {
 }
 
 // Formatting
+let currentFontSize = 'medium';
+
 function formatText(cmd) {
   const body = document.getElementById('entry-body');
   body.focus();
   document.execCommand(cmd);
+  updateToolbarState();
+}
+
+function insertBlockquote() {
+  const body = document.getElementById('entry-body');
+  body.focus();
+  const sel = window.getSelection();
+  const selected = sel && sel.toString();
+  if (selected) {
+    document.execCommand('insertHTML', false,
+      `<blockquote style="border-left:3px solid var(--gold);margin:0.5em 0;padding:0.4em 1em;color:var(--ink-muted);font-style:italic;">${selected}</blockquote>`
+    );
+  } else {
+    document.execCommand('insertHTML', false,
+      `<blockquote style="border-left:3px solid var(--gold);margin:0.5em 0;padding:0.4em 1em;color:var(--ink-muted);font-style:italic;">Quote here…</blockquote>`
+    );
+  }
+  updateToolbarState();
 }
 
 function insertText(text) {
@@ -1552,7 +1373,39 @@ function insertQuote() {
 function setBodyFontSize(size) {
   const map = { small: '0.92rem', medium: '1.05rem', large: '1.18rem' };
   document.getElementById('entry-body').style.fontSize = map[size] || map.medium;
+  currentFontSize = size;
+  // Update font size button highlights
+  ['small','medium','large'].forEach(s => {
+    const btn = document.getElementById(`btn-sz-${s}`);
+    if (btn) btn.classList.toggle('active', s === size);
+  });
 }
+
+function updateToolbarState() {
+  // Bold / italic / underline / strikethrough — reflect actual selection state
+  const checks = {
+    'btn-bold': 'bold',
+    'btn-italic': 'italic',
+    'btn-underline': 'underline',
+    'btn-strikethrough': 'strikeThrough',
+    'btn-ul': 'insertUnorderedList',
+    'btn-ol': 'insertOrderedList',
+    'btn-align-left': 'justifyLeft',
+    'btn-align-center': 'justifyCenter',
+    'btn-align-right': 'justifyRight',
+  };
+  Object.entries(checks).forEach(([id, cmd]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.classList.toggle('active', document.queryCommandState(cmd));
+  });
+}
+
+// Keep toolbar in sync as the cursor moves around
+document.addEventListener('selectionchange', () => {
+  if (document.activeElement && document.activeElement.id === 'entry-body') {
+    updateToolbarState();
+  }
+});
 
 function autoResize(el) {
   el.style.height = 'auto';
