@@ -718,28 +718,8 @@ const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hos
 const API_BASE = IS_LOCAL ? 'http://localhost:3000' : 'https://folio-nbzs.onrender.com';
 console.log('[Folio] API_BASE:', API_BASE);
 
-// Use localStorage so passphrase survives logout/re-open
-let apiPassphrase = localStorage.getItem('folio_passphrase') || '';
-
-// ── AUTO LOGIN if passphrase saved ──
-window.addEventListener('DOMContentLoaded', async () => {
-  if (apiPassphrase) {
-    try {
-      await apiFetch('/notebooks');
-      await ensureNotebook();
-      await loadEntries();
-      document.getElementById('login-page').style.display = 'none';
-      document.getElementById('app-page').style.display = 'block';
-      renderSidebar(entries);
-      renderNotebookGrid(entries);
-      showNotebook();
-    } catch (e) {
-      // saved passphrase failed — show login
-      apiPassphrase = '';
-      localStorage.removeItem('folio_passphrase');
-    }
-  }
-});
+// sessionStorage — passphrase only lives for this tab/session, always requires login
+let apiPassphrase = sessionStorage.getItem('folio_passphrase') || '';
 
 // ── AUTH ──
 async function enterJournal() {
@@ -777,12 +757,14 @@ async function enterJournal() {
     return;
   }
 
-  // Save to localStorage so entries load on next visit without re-entering
-  localStorage.setItem('folio_passphrase', pass);
+  // sessionStorage — gone when tab/browser closes
+  sessionStorage.setItem('folio_passphrase', pass);
 
   try {
     await ensureNotebook();
     await loadEntries();
+    // Cache entries locally so they're available for reading after logout
+    localStorage.setItem('folio_entries', JSON.stringify(entries));
     document.getElementById('login-page').style.display = 'none';
     document.getElementById('app-page').style.display = 'block';
     renderSidebar(entries);
@@ -802,7 +784,7 @@ function signOut() {
   document.getElementById('login-page').style.display = 'flex';
   document.getElementById('pass-field').value = '';
   document.getElementById('login-error').style.display = 'none';
-  // Keep passphrase in localStorage — entries stay accessible on next visit
+  sessionStorage.removeItem('folio_passphrase');
   apiPassphrase = '';
   activeNotebookId = null;
   entries = [];
@@ -878,6 +860,7 @@ async function loadEntries() {
   if (!activeNotebookId) return;
   const pages = await apiFetch(`/notebooks/${activeNotebookId}/pages`);
   entries = pages.map(pageToEntry);
+  localStorage.setItem('folio_entries', JSON.stringify(entries));
 }
 
 // ── TOOLBAR ──
