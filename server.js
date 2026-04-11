@@ -1,31 +1,26 @@
 const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || '0.0.0.0';
 const REQUIRED_PASSPHRASE = process.env.PASSPHRASE || 'Ozemoya';
+const MONGO_URI = process.env.MONGO_URI;
 
-const DATA_DIR = path.join(__dirname, 'data');
-const DATA_FILE = path.join(DATA_DIR, 'notebooks.json');
-
-function ensureDataFile() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-  if (!fs.existsSync(DATA_FILE)) {
-    fs.writeFileSync(DATA_FILE, JSON.stringify({ notebooks: [] }, null, 2));
-  }
+if (!MONGO_URI) {
+  console.error('ERROR: MONGO_URI environment variable is not set.');
+  process.exit(1);
 }
 
-function readData() {
-  ensureDataFile();
-  return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+let db;
+
+async function connectDB() {
+  const client = new MongoClient(MONGO_URI);
+  await client.connect();
+  db = client.db('folio');
+  console.log('Connected to MongoDB');
 }
 
-function writeData(data) {
-  fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
-}
+function notebooks() { return db.collection('notebooks'); }
 
 function send(res, status, data) {
   res.writeHead(status, {
@@ -38,23 +33,14 @@ function send(res, status, data) {
 }
 
 function sendFile(res, filePath, contentType) {
+  const fs = require('fs');
   fs.readFile(filePath, (err, content) => {
     if (err) {
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'Unable to load file' }));
       return;
     }
-
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      ...(process.env.NODE_ENV !== 'production'
-        ? {
-            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-            Pragma: 'no-cache',
-            Expires: '0'
-          }
-        : {})
-    });
+    res.writeHead(200, { 'Content-Type': contentType });
     res.end(content);
   });
 }
@@ -71,22 +57,14 @@ function checkAuth(req, res) {
 function parseBody(req) {
   return new Promise((resolve, reject) => {
     let body = '';
-
     req.on('data', chunk => {
       body += chunk;
-      if (body.length > 1e6) {
-        req.destroy();
-        reject(new Error('Too large'));
-      }
+      if (body.length > 1e6) { req.destroy(); reject(new Error('Too large')); }
     });
-
     req.on('end', () => {
       if (!body) return resolve({});
-      try {
-        resolve(JSON.parse(body));
-      } catch {
-        reject(new Error('Invalid JSON'));
-      }
+      try { resolve(JSON.parse(body)); }
+      catch { reject(new Error('Invalid JSON')); }
     });
   });
 }
@@ -95,36 +73,45 @@ function uid() {
   return Math.random().toString(36).slice(2) + Date.now().toString(36);
 }
 
+// Strip MongoDB _id before sending to client
+function clean(doc) {
+  if (!doc) return doc;
+  const { _id, ...rest } = doc;
+  return rest;
+}
+
 const server = http.createServer(async (req, res) => {
-  if (req.method === 'OPTIONS') {
-    return send(res, 204, {});
-  }
+  if (req.method === 'OPTIONS') return send(res, 204, {});
 
   const url = new URL(req.url, `http://${req.headers.host}`);
   const parts = url.pathname.split('/').filter(Boolean);
 
   try {
+    // Health check
     if (req.method === 'GET' && url.pathname === '/health') {
       return send(res, 200, { ok: true });
     }
 
+    // Serve frontend
     if (req.method === 'GET' && (url.pathname === '/' || url.pathname === '/index.html')) {
+      const path = require('path');
       return sendFile(res, path.join(__dirname, 'index.html'), 'text/html; charset=utf-8');
     }
 
+    // API routes
     if (parts[0] === 'notebooks') {
       if (!checkAuth(req, res)) return;
 
-      const data = readData();
-
+      // GET /notebooks
       if (req.method === 'GET' && parts.length === 1) {
-        return send(res, 200, data.notebooks);
+        const docs = await notebooks().find({}).toArray();
+        return send(res, 200, docs.map(clean));
       }
 
+      // POST /notebooks
       if (req.method === 'POST' && parts.length === 1) {
         const body = await parseBody(req);
         const now = new Date().toISOString();
-
         const notebook = {
           id: uid(),
           title: body.title || 'Untitled Notebook',
@@ -132,39 +119,37 @@ const server = http.createServer(async (req, res) => {
           updatedAt: now,
           pages: []
         };
-
-        data.notebooks.push(notebook);
-        writeData(data);
-
-        return send(res, 201, notebook);
+        await notebooks().insertOne(notebook);
+        return send(res, 201, clean(notebook));
       }
 
       const notebookId = parts[1];
-      const notebook = data.notebooks.find(n => n.id === notebookId);
+      const notebook = await notebooks().findOne({ id: notebookId });
+      if (!notebook) return send(res, 404, { error: 'Notebook not found' });
 
-      if (!notebook) {
-        return send(res, 404, { error: 'Notebook not found' });
-      }
-
+      // GET /notebooks/:id
       if (req.method === 'GET' && parts.length === 2) {
-        return send(res, 200, notebook);
+        return send(res, 200, clean(notebook));
       }
 
+      // DELETE /notebooks/:id
       if (req.method === 'DELETE' && parts.length === 2) {
-        data.notebooks = data.notebooks.filter(n => n.id !== notebookId);
-        writeData(data);
+        await notebooks().deleteOne({ id: notebookId });
         return send(res, 200, { ok: true });
       }
 
+      // Pages routes
       if (parts[2] === 'pages') {
+
+        // GET /notebooks/:id/pages
         if (req.method === 'GET' && parts.length === 3) {
-          return send(res, 200, notebook.pages);
+          return send(res, 200, notebook.pages || []);
         }
 
+        // POST /notebooks/:id/pages
         if (req.method === 'POST' && parts.length === 3) {
           const body = await parseBody(req);
           const now = new Date().toISOString();
-
           const page = {
             id: uid(),
             title: body.title || 'Untitled Page',
@@ -174,42 +159,47 @@ const server = http.createServer(async (req, res) => {
             createdAt: now,
             updatedAt: now
           };
-
-          notebook.pages.push(page);
-          notebook.updatedAt = now;
-          writeData(data);
-
+          await notebooks().updateOne(
+            { id: notebookId },
+            { $push: { pages: page }, $set: { updatedAt: now } }
+          );
           return send(res, 201, page);
         }
 
         const pageId = parts[3];
-        const page = notebook.pages.find(p => p.id === pageId);
 
-        if (!page) {
-          return send(res, 404, { error: 'Page not found' });
-        }
-
-        if (req.method === 'PUT') {
-          const body = await parseBody(req);
-          const now = new Date().toISOString();
-
-          if (body.title) page.title = body.title;
-          if (body.blocks) page.blocks = body.blocks;
-          if (body.tags) page.tags = body.tags;
-          if (body.date) page.date = body.date;
-
-          page.updatedAt = now;
-          notebook.updatedAt = now;
-
-          writeData(data);
+        // GET /notebooks/:id/pages/:pageId
+        if (req.method === 'GET' && parts.length === 4) {
+          const page = (notebook.pages || []).find(p => p.id === pageId);
+          if (!page) return send(res, 404, { error: 'Page not found' });
           return send(res, 200, page);
         }
 
-        if (req.method === 'DELETE') {
-          notebook.pages = notebook.pages.filter(p => p.id !== pageId);
-          notebook.updatedAt = new Date().toISOString();
+        // PUT /notebooks/:id/pages/:pageId
+        if (req.method === 'PUT' && parts.length === 4) {
+          const body = await parseBody(req);
+          const now = new Date().toISOString();
+          const updateFields = { 'pages.$.updatedAt': now, updatedAt: now };
+          if (body.title !== undefined)  updateFields['pages.$.title']  = body.title;
+          if (body.blocks !== undefined) updateFields['pages.$.blocks'] = body.blocks;
+          if (body.tags !== undefined)   updateFields['pages.$.tags']   = body.tags;
+          if (body.date !== undefined)   updateFields['pages.$.date']   = body.date;
+          await notebooks().updateOne(
+            { id: notebookId, 'pages.id': pageId },
+            { $set: updateFields }
+          );
+          const updated = await notebooks().findOne({ id: notebookId });
+          const page = (updated.pages || []).find(p => p.id === pageId);
+          return send(res, 200, page);
+        }
 
-          writeData(data);
+        // DELETE /notebooks/:id/pages/:pageId
+        if (req.method === 'DELETE' && parts.length === 4) {
+          const now = new Date().toISOString();
+          await notebooks().updateOne(
+            { id: notebookId },
+            { $pull: { pages: { id: pageId } }, $set: { updatedAt: now } }
+          );
           return send(res, 200, { ok: true });
         }
       }
@@ -217,10 +207,17 @@ const server = http.createServer(async (req, res) => {
 
     return send(res, 404, { error: 'Route not found' });
   } catch (err) {
+    console.error(err);
     return send(res, 500, { error: err.message });
   }
 });
 
-server.listen(PORT, HOST, () => {
-  console.log(`Server running at http://${HOST}:${PORT}`);
+// Connect to MongoDB then start server
+connectDB().then(() => {
+  server.listen(PORT, HOST, () => {
+    console.log(`Server running at http://${HOST}:${PORT}`);
+  });
+}).catch(err => {
+  console.error('Failed to connect to MongoDB:', err);
+  process.exit(1);
 });
