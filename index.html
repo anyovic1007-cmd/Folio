@@ -846,8 +846,8 @@ let activeNotebookId = null;
 
 // ── API CONFIG ──
 const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-const API_BASE = IS_LOCAL ? 'http://localhost:3000' : 'https://folio-topaz-zeta.vercel.app/';
-console.log('[Folio] API_BASE:', API_BASE);
+// Remove the domain entirely so it uses "Relative Paths"
+const API_BASE = IS_LOCAL ? 'http://localhost:5000' : '';
 
 // sessionStorage — passphrase only lives for this tab/session
 let apiPassphrase = sessionStorage.getItem('folio_passphrase') || '';
