@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/notebooks/(.*)", "destination": "/api/server.js" },
+    { "source": "/health", "destination": "/api/server.js" }
+  ]
+}
