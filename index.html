@@ -1267,6 +1267,40 @@ document.addEventListener('keydown', e => {
     if (document.getElementById('editor-form').style.display !== 'none') saveEntry();
   }
 });
+ // Add this to your existing JS script section
+async function apiFetch(path, options = {}) {
+  const opts = {
+    method: options.method || 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Passphrase': apiPassphrase,
+      ...options.headers
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined
+  };
+
+  const url = `${API_BASE}${path}`;
+  
+  try {
+    const res = await fetch(url, opts);
+    
+    // Handle Vercel "Cold Start" (the 504 timeout)
+    if (res.status === 504) {
+      toast("Server waking up... retrying...");
+      return new Promise(resolve => setTimeout(() => resolve(apiFetch(path, options)), 3000));
+    }
+
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.error || `Error ${res.status}`);
+    }
+
+    return await res.json();
+  } catch (err) {
+    console.error("[Folio Error]", err);
+    throw err;
+  }
+}
 </script>
 </body>
 </html>
